@@ -1,7 +1,7 @@
 __author__ = 'jem'
 
 import logging
-import LogBundle
+#import LogBundle
 #import LogEntry
 
 from google.appengine.ext import ndb
@@ -14,11 +14,12 @@ class SageLogModel():
         log.debug('store the logs by calling the model layer')
         #log_entries = log_bundles['logEntries']   #.logEntries.tolist()
         #log.info(log_entries)
-        for log_bundle in log_bundles:
-            log.info(log_bundle)
+
+        #for log_bundle in log_bundles:
+        #    log.info(log_bundle)
             #log.info(log_bundle.logEntries)
-            ndb_log_bundle = LogBundle()
-            ndb_log_bundle.bundle_name = 'default'
+        #    ndb_log_bundle = LogBundle()
+        #    ndb_log_bundle.bundle_name = 'default'
             #                          log_entries=[])
             #ndb_log_bundle.put()
 

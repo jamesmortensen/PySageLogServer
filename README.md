@@ -53,6 +53,17 @@ Then to watch your code for changes, run the following command:
 $ livereload .
 ```
 
+You'll also want to run an http-server on the SageLog root so that the example HTML page with PySageLogServer can reach
+the dist/SageLog.js file.  I use the http-server that you can install from npm:
+
+```
+$ npm install http-server
+$ http-server -p 8090 .    # where . is the root of the SageLog JS library.
+```
+
+Once the http-server is running on port 8090 and PySageLogServer is running on port 8080, go to
+http://localhost:8080/html/index.html to make a request to the PySageLogServer. The HTML page sends
+some sample data to the server.
 
 
 ## Client-side initialization
