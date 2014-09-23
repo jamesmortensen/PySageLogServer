@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SageLog</title>
+    <script type="text/javascript" src="http://localhost:8090/dist/SageLog.js"></script>
+    <script type="text/javascript">
+
+        var logHandler = new SageLog();
+          var requestUrl = "http://localhost:8080/logs";   // change this to the URL of your appspot.com server
+          window.addEventListener('load', function() {
+            logHandler.init({
+                "captureLogs": true,
+                "logLevel": SageLog.DEBUG,
+                "logStorerClassName": "JsonLogStorer",
+                "server": requestUrl
+            });
+
+            console.debug('test test test');
+            console.log('test test test');
+            console.info('test test test');
+            console.warn('test test test');
+            console.error('test test test');
+
+            var observer = logHandler.sendLogsToServer();
+            observer.done(function(result) {
+              console.debug('done sending to server');
+              console.debug(result);
+            });
+
+          });
+    </script>
+</head>
+<body>
+    <p>This is a test.</p>
+    <!--<script type="text/javascript" src="../js/LiveReloadHelper.js"></script>-->
+</body>
+</html>
