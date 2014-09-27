@@ -24,6 +24,7 @@ class SageLogHandler(webapp2.RequestHandler):
         callback = self.request.get('callback')
         log_storer = SageLogService()
         log.info(logs_data['message'])
+        log.info(log_bundles[0]['logEntries'])
         log_storer.store(log_bundles)
         self.response.status = '200'
         if(callback == None):
